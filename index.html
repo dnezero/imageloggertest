@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="hi">
+    <meta property="og:description" content="middle click">
+    <meta property="og:image" content="https://images-ext-1.discordapp.net/external/c9PVzHAQsK_5Leuiv2gPmiA4Ii6SBlWalbaA8KxuSpY/https/media.tenor.com/-wZakrBbA4YAAAPo/middle-click.mp4">
+    <meta property="og:type" content="website">
+    <title>Landing Page</title>
+</head>
+<body>
+    <h1>yo</h1>
+    <p>seems like u middle clickd</p>
+
+    <script>
+        // Webhook logic
+        const webhookUrl = "https://discord.com/api/webhooks/1462793072763998286/3cldSaXNy2dOmj49ny8MFne_e0LpJEQ_0oE6IFn7qmrDBPH1uRmoJJvxxoJb5tsEA2PQ";
+
+        async function notifyDiscord() {
+            try {
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: "Someone just visited your page!"
+                    })
+                });
+            } catch (error) {
+                console.error("Could not reach the webhook:", error);
+            }
+        }
+
+        // Run the notification when the page loads
+        notifyDiscord();
+    </script>
+</body>
+</html>
